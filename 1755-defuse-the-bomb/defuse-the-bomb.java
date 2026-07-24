@@ -2,10 +2,7 @@ class Solution {
     public int[] decrypt(int[] code, int k) {
         int[] ans = new int[code.length];
         if (k == 0) {
-            for (int i = 0; i < code.length; i++) {
-                code[i] = 0;
-            }
-            return code;
+            return ans;
         } else if (k > 0) {
             int sum = 0;
 
