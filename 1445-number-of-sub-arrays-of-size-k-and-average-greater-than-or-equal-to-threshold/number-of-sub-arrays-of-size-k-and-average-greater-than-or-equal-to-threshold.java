@@ -12,7 +12,7 @@ class Solution {
                 left++;
             }
 
-            if(sum/k >= threshold && right-left+1 == k){
+            if(sum >= threshold*k && right-left+1 == k){
                 count++;
             }
         }
