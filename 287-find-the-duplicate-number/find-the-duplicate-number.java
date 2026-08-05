@@ -1,4 +1,5 @@
 class Solution {
+    // ************************** Floyd's algorithm **************************
     public int findDuplicate(int[] nums) {
         int slow = nums[0];
         int fast = nums[nums[0]];
