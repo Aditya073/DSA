@@ -18,7 +18,7 @@ class Solution {
         
         if(root == null) return false;
 
-        Deque<TreeNode> stack = new ArrayDeque<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
 
         while(!stack.isEmpty()){
