@@ -19,17 +19,17 @@ class Solution {
 
     }
 
-    public int dfs(TreeNode root,int mainRootVal){
+    public int dfs(TreeNode root,int currMaxVal){
         if(root == null) return 0;
         int count = 0;
 
-        if(root.val >= mainRootVal){
+        if(root.val >= currMaxVal){
             count = 1;
-            mainRootVal = root.val;
+            currMaxVal = root.val;
         }
         
-        count += dfs(root.left, mainRootVal);
-        count += dfs(root.right, mainRootVal);
+        count += dfs(root.left, currMaxVal);
+        count += dfs(root.right, currMaxVal);
 
         return count;
     }
