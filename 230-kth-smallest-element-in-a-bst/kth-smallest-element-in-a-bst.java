@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    public List<Integer> list = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
 
     public int kthSmallest(TreeNode root, int k) {
         inorder(root, k);
