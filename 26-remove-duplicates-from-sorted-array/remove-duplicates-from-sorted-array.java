@@ -10,6 +10,7 @@ class Solution {
             }
             second++;
         }
+        // the output will be the length of the array without duplicates
         return first+1;
     }
 }
