@@ -13,15 +13,16 @@ class Solution {
         for (int i = 0; i < stones.length; i++) {
             maxHeap.add(stones[i]);
         }
-        // System.out.println(maxHeap.peek());
-        // return 1;
-        while(maxHeap.size() != 1){
-            // Integer s1 = maxHeap.pop();
-            // Integer s2 = maxHeap.pop();
-            Integer diff = Math.abs(maxHeap.poll() - maxHeap.poll());
-            maxHeap.offer(diff);
-        }
-        return maxHeap.poll();
 
+        while (maxHeap.size() > 1) {
+            int s1 = maxHeap.poll(); // largest
+            int s2 = maxHeap.poll(); // second largest
+
+            if (s1 != s2) {
+                maxHeap.offer(s1 - s2);
+            }
+        }
+
+        return maxHeap.isEmpty() ? 0 : maxHeap.poll();
     }
 }
