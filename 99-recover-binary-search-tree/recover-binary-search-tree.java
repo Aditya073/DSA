@@ -15,7 +15,10 @@
  */
 class Solution {
     int gl = 0;
-    TreeNode g1fir, g1sec, g2fir, g2sec;
+    TreeNode g1fir = null;
+    TreeNode g1sec = null;
+    TreeNode g2fir = null;
+    TreeNode g2sec = null;
     TreeNode prev = null;
 
     public void recoverTree(TreeNode root) {
