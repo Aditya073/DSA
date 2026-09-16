@@ -10,6 +10,8 @@ class Pair { // make a pair class
 
 class Solution {
     public String reorganizeString(String s) {
+
+        if(s.length() == 1) return s;
         // count the freq of each chara in the "s" string using hashmap
         HashMap<Character, Integer> map = new HashMap<>();
 
