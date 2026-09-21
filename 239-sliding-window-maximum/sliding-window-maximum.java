@@ -1,26 +1,35 @@
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums == null || nums.length == 0 || k <= 0) return new int[0];
-        
-        int n = nums.length;
-        Deque<Integer> deque = new LinkedList<>();
-        int[] ans = new int[n - k + 1];
 
-        for (int i = 0; i < n; i++) {
+        PriorityQueue<Integer> pq =
+            new PriorityQueue<>(
+                (a, b) -> nums[b] - nums[a]
+            );
+        Deque<Integer> q = new ArrayDeque<>();
+        int[] ans = new int[nums.length - k + 1];
 
-            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
-                deque.poll();
+        // First window
+        for (int i = 0; i < k; i++) {
+            q.offer(i);
+            pq.offer(i);
+        }
+
+        ans[0] = nums[pq.peek()];
+
+        for (int i = k; i < nums.length; i++) {
+            q.offer(i);
+            pq.offer(i);
+
+            if (q.size() > k) {
+                q.poll();
             }
-            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
-                deque.pollLast();
+
+            // Remove indices outside current window
+            while (!pq.isEmpty() && pq.peek() <= i - k) {
+                pq.poll();
             }
 
-            deque.offer(i);
-
-            if (i >= k - 1) {
-                ans[i - k + 1] = nums[deque.peek()];
-            }
-
+            ans[i - k + 1] = nums[pq.peek()];
         }
 
         return ans;
